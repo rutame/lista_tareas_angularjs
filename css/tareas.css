@@ -1,0 +1,18 @@
+span.done-true{
+    text-decoration: line-through;
+    color: grey;
+}
+h2{
+    color:red;
+}
+.btn{
+	margin:10px 0;
+}
+li.list-unstyled{
+	padding:10px;
+	display: block;
+	border: 1px solid #ccc;
+}
+.margin-der{
+	margin: 10px;
+}

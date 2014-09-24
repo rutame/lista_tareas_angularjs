@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html ng-app><!-- angular actual actuara sobre todo el documento -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Lista de Tareas 2</title>
+    <script src="angular-1.2.9/angular.js"></script>
+    <script src="angular-1.2.9/angular.animate.js"></script>
+    <script src="js/underscore-1.6.0.js"></script>
+    <script src="js/tarea.js"></script>
+    <link type="text/css" rel="stylesheet" href="bootstrap-3.0.3-dist/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/tareas.css"/>
+</head>
+    <body>
+        <div ng-controller="modeloTareas" class="container">
+        <h1 class="page-header">LISTA DE TAREAS (AKA TODO)<span ng-model="hoy"></span></h1>
+           <h2>Total Tareas: {{ getTotalTareas() }} </h2>
+            <!--<h2>Fecha actual: {{ getFecha() | date : 'dd/MM/yyyy' }} </h2>-->
+            
+            <form class="form-horizontal form-lg">
+               <input type="text" class="form-control" ng-model='formTareaText' ng-model-instant placeholder="¿Tienes tareas pendientes?">
+               <button class="btn btn-info btn-lg btn-block" ng-click="addTareas()"><i class="icon-plus"></i>Añadir</button>
+               <button class="btn btn-danger btn-lg" ng-click="delTareas()">
+               <i class="icon-trash">Borrar</i></button>
+           </form>
+           <ul class="list-unstyled" ng-repeat="tarea in tareas" >
+           <!-- 
+            es como un foreach 
+           --> 
+            <li class="task"> 
+                <input type="checkbox" ng-model="tarea.done" class="margin-der">
+                <span class="text done-{{tarea.done}}">{{tarea.text}}</span>
+                <span class="text-warning taskDate">{{tarea.fecha}}</span>
+            </li>
+           </ul>
+           
+            <footer>Hecho por Pedro 2014</footer>
+        </div>   
+    </body>
+
+</html>
